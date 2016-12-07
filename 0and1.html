@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<h1>Поиск длинны самой длинной непрерывной цепочки единиц:</h1>
+<p>Введите произвольную последоватеьность из 0 и 1</p>
+<input type="text" id="number" placeholder="Введите здесь"><button id="btn">Поиск</button>
+	<script>
+	var but = document.getElementById('btn');
+	but.onclick = function(event) {
+	var input = document.getElementById('number').value;
+currentArray = [];
+maxArray = [];
+arrInput = input.split('');
+var i;
+for (i = 0; i < arrInput.length; i++) {
+	if (arrInput[i] == 1) {
+  	currentArray.push(arrInput[i]);
+    if (currentArray.length > maxArray.length) {
+    	maxArray = currentArray;
+    }
+  }
+  else if (arrInput[i] == 0) {
+  	currentArray = [];
+  }
+  else {
+  	alert('You write the wrong number');
+  }
+}
+alert('The biggest combination of 1 is ' + maxArray.length + " (" + maxArray.join('') + ")");
+	}
+	</script>
+</body>
+</html>
